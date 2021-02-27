@@ -30,7 +30,6 @@
 
       .h1{
          margin-top: 10%;
-
       }
      
      .todo{
@@ -72,17 +71,8 @@ ul{
 ul li div.content{
 	text-decoration:none;
 	color:#000;
-	background:#ffc ;
 	display:block;
 	height:100%;
-	width:40em;
-	padding:5em;
-	-moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
-	-webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-	box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-	-moz-transition:-moz-transform .15s linear;
-	-o-transition:-o-transform .15s linear;
-	-webkit-transition:-webkit-transform .15s linear;
 }
 ul li{
 	margin:1em;
@@ -97,33 +87,17 @@ ul li p{
 	font-family:"Reenie Beanie",arial,sans-serif;
 	font-size:100%;
 }
-ul li div.content{
-	-webkit-transform: rotate(-6deg);
-	-o-transform: rotate(-6deg);
-	-moz-transform:rotate(-6deg);
-}
 
-ul li div.content:hover,ul li div.content:focus{
-	box-shadow:10px 10px 7px rgba(0,0,0,.7);
-	-moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
-	-webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
-	-webkit-transform: scale(1.25);
-	-moz-transform: scale(1.25);
-	-o-transform: scale(1.25);
-	position:relative;
-	z-index:5;
-}
-ol{text-align:center;}
-ol li{display:inline;padding-right:1em;}
-ol li div.content{color:#fff;}
+
 
 form {
 	width: 90%;
 	margin: 30px auto;
 	border-radius: 5px;
 	padding: 10px;
-	border: 1px solid black;
+	border: 2px solid silver;
 	font-size: 10px;
+	background-color: #ededed;
 
 }
 form p {
@@ -132,18 +106,18 @@ form p {
 	font-size: 10px;
 }
 .task_input {
-	width: 75%;
+	width: 90%;
 	height: 30px;
 	padding: 2px 20px;
-	border: 2px solid black;
+	border: 2px solid darkcyan;
+	border-radius: 5px;
 	font-family: 'Handlee', cursive;
-	background:#ffc ;
   font-size: 16px;
 
 }
 .add_btn {
 	height: 30px;
-	background: #404040 ;
+	background: darkcyan ;
 	color: 	white;
 	padding: 5px 20px;
 	border-style: none;
@@ -184,7 +158,7 @@ td {
 
 /* Darker background-color on hover */
 td:hover {
-	background:#ffc ;
+	background:silver ;
 }
 
 /* When clicked on, add a background color and strike out text */
@@ -193,14 +167,8 @@ td.checked {
 	color: #fff;
 	text-decoration: line-through;
 }
-a{
-	color:red;
-}
-a:hover{
-	color:black;
-	background:#ffc ;
 
-}
+
 /* Add a "checked" mark when clicked on */
 td.checked::before {
 	content: '';
@@ -236,6 +204,10 @@ td.action{
 td.task{
 	font-family: 'Handlee', cursive;
 
+}
+
+.title b{
+	color: gray;
 }
       
   </style>
