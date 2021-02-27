@@ -1,6 +1,37 @@
+<?php
+if(isset($_POST["email"])){
+    session_start();
+
+    $connection = mysqli_connect("localhost", "root", "", "rock-enroll");
+
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+
+    if($connection){
+
+        $query = "SELECT * FROM login WHERE email='$email' AND password='$password'";
+
+        $res=mysqli_query($connection,$query);
+        if(mysqli_num_rows($res)>0){
+            $user=mysqli_fetch_all($res,MYSQLI_ASSOC);
+            $_SESSION['email'] = $email;
+            $_SESSION['username'] = $username;
+            header("location: main.html");
+        }
+
+        else{
+            echo '<script>alert("Invalid username or password")</script>'; 
+        }
+
+    }
+    else{
+        echo '<script>alert("Session connection not established")</script>'; 
+    }
+}
+?>
 <html>
   <head>
-    <title>Sign Up</title>
+    <title>Login</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -73,15 +104,9 @@
   </head>
   <body>
     <div class="box container">
-      <form action="signup.php">
-        <h2>SIGN UP</h2>
-        <input
-          name="username"
-          type="text"
-          placeholder="Username"
-          class="input"
-          required
-        />
+      <form action="login.php">
+        <h2>LOGIN</h2>
+
         <input
           name="email"
           type="email"
@@ -97,7 +122,7 @@
           required
         />
         <br />
-        <button type="submit" class="btn">Sign Up</button>
+        <button type="submit" class="btn">Login</button>
       </form>
     </div>
   </body>
