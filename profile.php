@@ -269,13 +269,13 @@ td.task{
 
 ?>
        <nav class="navbar navbar-expand-sm bg-light fixed-top">
-  <a class="navbar-brand" href="#"><img src="logo.png" /></a>
+  <a class="navbar-brand" href="#"><img src="logo.png"/></a>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#if">PROFILE</a>
+      <a class="nav-link" href="#">PROFILE</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">CHANNELS</a>
+      <a class="nav-link" href="channels.html">CHANNELS</a>
     </li>
   </ul>
 </nav>
