@@ -8,7 +8,6 @@ session_start();
 $connection = mysqli_connect("localhost", "root", "", "rock-enroll");
 
 if($connection){
-echo "yaaaaaaaaaaaas";
 $query = "SELECT * FROM login WHERE email='$email' AND password='$password'";
 
 $res=mysqli_query($connection,$query);
@@ -20,9 +19,10 @@ if(mysqli_num_rows($res)>0){
 }
 
 else{
-    echo '<script>alert("Invalid username or password")</script>'; 
+    echo '<script>alert("Invalid username or password.\nGo back to login page and enter valid username and password.")</script>'; 
+    //header('location: login2.html');
 }
-
+//header('location: login2.html');
 }
 
 ?>

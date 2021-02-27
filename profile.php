@@ -259,11 +259,15 @@ td.task{
     if (isset($_POST['submit'])) {
       if (empty($_POST['task'])) {
         $errors = "*You must fill in the task";
+        //unset($_POST['submit']);
       }else{
         $task = $_POST['task'];
         $sql = "INSERT INTO todo (task) VALUES ('$task')";
         mysqli_query($db, $sql);
-        header('location: index.php');
+        unset($_POST);
+        unset($_REQUEST);
+        //$_POST=array();
+        header('location: profile.php');
       }
     }
     if (isset($_GET['del_task'])) {
@@ -300,7 +304,7 @@ td.task{
 
             <p class="title"><b>TO DO LIST:</b></p>
 
-            <form method="post" action="profile.php" class="input_form">
+            <form method="POST" action="profile.php" class="input_form">
               <?php if (isset($errors)) { ?>
           	<p><?php echo $errors; ?></p>
           <?php } ?>
