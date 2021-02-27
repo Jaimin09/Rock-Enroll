@@ -316,8 +316,8 @@ td.task{
           </div>
       </li>
     </ul>
-                 </div>
-                </div>
+    </div>
+</div>
      <script>
 
 // Add a "checked" symbol when clicking on a list item
