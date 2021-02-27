@@ -1,3 +1,17 @@
+<?php
+session_start();
+$connection=mysqli_connect("localhost","root","","rock-enroll");
+$email= $_SESSION['email'];
+$author=$_SESSION['username'];
+$title=$_POST['title'];
+$link=$_POST['link'];
+$channel=$_POST['channel'];
+$private=false;
+if(isset($_POST['private']))
+$private=true;
+$sql="INSERT INTO notes VALUES('$title','$author','$link',0,'$channel','$private','$email')";
+$res=mysqli_query($connection,$sql);
+?>
 <html>
   <head>
     <title>Profile</title>
@@ -77,8 +91,16 @@
       <div class="row">
         <div class="col-sm-6">
           <br />
-          <br />
+          <form method="POST" action= "newnote.php">
           <input
+            name="title"
+            class="form-control"
+            type="text"
+            required
+            placeholder="Title"
+          />
+          <input
+            name="link"
             class="form-control"
             type="text"
             required
@@ -88,34 +110,25 @@
           <br />
 
           <h5>Select Channels:</h5>
+          <?php
+            $connection=mysqli_connect("localhost","root","","rock-enroll");
+            $sql="select channel.name from channels NATURAL JOIN channel where members='$email'";
+            $result=mysqli_query($connection,$sql);
+            if(mysqli_num_rows($result)>0)
+            {
+                while($row=mysqli_fetch_assoc($result))
+                {
+                    echo "<div class='form-check'> <input name='channel' class='form-check-input' type='radio' value='' id='flexCheckDefault' />";
+                    echo "<label class='form-check-label' for='flexCheckDefault'>";
+                    echo $row["name"];
+                    echo "</label>";
+                    echo "</div>"; 
+                }
+            }
+            ?>
           <div class="form-check">
             <input
-              name="x"
-              class="form-check-input"
-              type="radio"
-              value=""
-              id="flexCheckDefault"
-            />
-            <label class="form-check-label" for="flexCheckDefault">
-              Assholes
-            </label>
-          </div>
-          <div class="form-check">
-            <input
-              name="x"
-              class="form-check-input"
-              type="radio"
-              value=""
-              id="flexCheckChecked"
-              checked
-            />
-            <label class="form-check-label" for="flexCheckChecked">
-              Computer Department
-            </label>
-          </div>
-
-          <div class="form-check">
-            <input
+               name="private"
               class="form-check-input"
               type="checkbox"
               value=""
@@ -129,7 +142,8 @@
 
           <br />
 
-          <button class="btn btn-primary btn-medium">ADD</button>
+          <button class="btn btn-primary btn-medium" type="submit">ADD</button>
+        </form>
         </div>
         <div class="col-sm-6">
           <img src="note.png" />

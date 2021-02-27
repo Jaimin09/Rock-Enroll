@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html>
    <head>
        <title>
@@ -277,7 +280,11 @@ td.task{
   </ul>
 </nav>
 <div class="container h1">
-    <h1>Hello User!!</h1>
+    <?php
+    //session_start();
+    if(isset($_SESSION['username']));
+    echo "<h1>Hello ".$_SESSION["username"]."!!</h1>";
+    ?>
 </div>
 <div class="container todo">
 <div class="container x">
@@ -331,17 +338,10 @@ td.task{
           </div>
       </li>
     </ul>
-<<<<<<< HEAD
-    </div>
-</div>
-     <script>
-
-=======
 </div>
 </div>
 </div>
 <script>
->>>>>>> c2627fe41dd3c00b1b87e9cc74fee20a4dbfc9e6
 // Add a "checked" symbol when clicking on a list item
 $(function(){
   var $curParent, Content;
@@ -365,7 +365,7 @@ $(function(){
 
 <div class="container mynotes">
     <button class="btn btn-lg btn-primary">My Notes</button>
-    <button class="btn btn-lg btn-primary">Add New </button>
+    <a href="newnote.php"><button class="btn btn-lg btn-primary">Add New </button></a>
 
 </div>
 
