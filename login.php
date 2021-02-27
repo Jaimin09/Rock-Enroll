@@ -1,5 +1,6 @@
 <?php
 if(isset($_POST["email"])){
+  echo "hello";
     session_start();
 
     $connection = mysqli_connect("localhost", "root", "", "rock-enroll");

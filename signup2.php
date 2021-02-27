@@ -1,13 +1,10 @@
 <?php
 
-$connection = mysqli_connect("localhost", "root", "", "rock-enroll");
-
-if($connection){echo "Yes";}
-else{echo "No";}
-
+$username = $_POST["username"];
 $email = $_POST["email"];
 $password = $_POST["password"];
-$username = $_POST["username"];
+
+$connection = mysqli_connect("localhost", "root", "", "rock-enroll");
 
 $query = "SELECT * FROM login WHERE email='$email'";
 
@@ -21,21 +18,16 @@ else if(!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]
     echo "<h3> Invalid Email Address. </h3><br><br>";
 
 else{
-$query = "INSERT INTO `rock-enroll` (`email`, `password`, `username`, `stars`) 
+$query2 = "INSERT INTO login (`email`, `password`, `username`, `stars`) 
                 VALUES ('$email', '$password', '$username', 0);";
 
-if(mysqli_query($connection, $query)){
+if(mysqli_query($connection, $query2)){
     echo "<br><br><h2>Successfully Signed Up !</h2><br><br>";
-    header("location: login.php");
+    header("location: login.html");
 }
 else
     echo "<br><h2>Sign up Error. Please Try again !</h2><br><br>";
 }
 
-?>
 
-<html>
-    <body>
-        <button onclick = "window.location.href='login.php'">Back to Login Up Page</button>
-    </body>
-</html>
+?>
