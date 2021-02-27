@@ -17,7 +17,8 @@
           padding-top: 20px;
           padding-bottom: 20px;
           border-radius: 10px;
-          margin-left: 2%;
+		  border: 3px solid darkcyan;
+          margin-left: 1.5%;
       }
       
       .nav-item:hover {
@@ -28,24 +29,28 @@
           color: white;
       }
 
+	  .nav-item a{
+		  color: darkcyan;
+		  font-weight: bold;
+	  }
+
       .h1{
-         margin-top: 10%;
+         margin-top: 8.5%;
       }
      
      .todo{
          border: 2px solid #ccc;
          border-radius: 5px;
          height: 55%;
+		 overflow:scroll;
      }
+	 
 
      .mynotes{
          text-align: center;
-         margin-top: 2%;
+         margin-top: 1.5%;
      }
-     *{
-	margin:0;
-	padding:0;
-}
+
 body{
 	font-family:arial,sans-serif;
 	font-size:100%;
@@ -92,7 +97,7 @@ ul li p{
 
 form {
 	width: 90%;
-	margin: 30px auto;
+	margin:  auto;
 	border-radius: 5px;
 	padding: 10px;
 	border: 2px solid silver;
@@ -121,7 +126,7 @@ form p {
 	color: 	white;
 	padding: 5px 20px;
 	border-style: none;
-	border-radius: 10px;
+	border-radius: 7px;
 }
 
 table {
@@ -209,7 +214,17 @@ td.task{
 .title b{
 	color: gray;
 }
-      
+
+.row ul{
+	width:100%;
+
+}
+
+ .row ul li{
+	width:100%;
+
+}  
+   
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -265,11 +280,11 @@ td.task{
     <h1>Hello User!!</h1>
 </div>
 <div class="container todo">
-<div class="container">
+<div class="container x">
 
   <div class="row justify-content-center">
 
-  <ul>
+      <ul>
       <li>
 
           <div class="content">
@@ -284,7 +299,7 @@ td.task{
           		<input type="text" name="task" class="task_input">
           		<button type="submit" name="submit" id="add_btn" class="add_btn">Add Task</button>
 
-          	</form><p style="font-size:10px;color:red;">*Click Task name to mark it done.</p>
+          	</form>
             <center>
             <table>
             	<thead>
@@ -316,10 +331,17 @@ td.task{
           </div>
       </li>
     </ul>
+<<<<<<< HEAD
     </div>
 </div>
      <script>
 
+=======
+</div>
+</div>
+</div>
+<script>
+>>>>>>> c2627fe41dd3c00b1b87e9cc74fee20a4dbfc9e6
 // Add a "checked" symbol when clicking on a list item
 $(function(){
   var $curParent, Content;
