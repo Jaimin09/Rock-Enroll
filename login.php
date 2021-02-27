@@ -16,7 +16,7 @@ if(isset($_POST["email"])){
             $user=mysqli_fetch_all($res,MYSQLI_ASSOC);
             $_SESSION['email'] = $email;
             $_SESSION['username'] = $username;
-            header("location: main.html");
+            header("location: profile.html");
         }
 
         else{
@@ -122,7 +122,7 @@ if(isset($_POST["email"])){
           required
         />
         <br />
-        <button type="submit" class="btn">Login</button>
+        <input type="submit" class="btn">Login</input>
       </form>
     </div>
   </body>
