@@ -1,15 +1,12 @@
 <html>
-  <head>
-    <title>Login</title>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <style>
-      body {
+<head>
+<title>Login</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+     body {
         margin: 0;
         padding: 0;
         background-color: white;
@@ -72,21 +69,24 @@
       }
 
       img {
-        width: 50%;
+        width: 40%;
       }
-    </style>
-  </head>
-  <body>
-    <div class="box container">
-      <img src="C:\Users\SHREYASH.K\Desktop\PROJECT\Rock-Enroll\logo.png" />
-      <form action="login.php">
-        <h2>LOGIN</h2>
+</style>
+</head>
 
-        <input type="email" placeholder="E-mail" class="input" required />
-        <input type="password" placeholder="Password" class="input" required />
-        <br />
-        <button type="submit" class="btn">Login</button>
-      </form>
+<body>
+
+
+    <div class="box container">
+        <img src="logo.png"/>
+        <form action="login2.php" method="POST">
+            <h2>LOGIN</h2>
+    
+            <input name="email" type="email" placeholder="E-mail" class="input" required />
+            <input name="password" type="password" placeholder="Password" class="input" required />
+            <br />
+            <button type="submit" class="btn">Login</button>
+        </form>
     </div>
-  </body>
+</body>
 </html>
