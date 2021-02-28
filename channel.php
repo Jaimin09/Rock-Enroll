@@ -63,6 +63,62 @@
         a {
             text-decoration: none;
         }
+
+
+.search {
+    width: 100%;
+    margin-bottom: auto;
+    margin-top: 20px;
+    height: 50px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px
+}
+
+.search-input {
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    margin-top: 5px;
+    caret-color: transparent;
+    line-height: 20px;
+    transition: width 0.4s linear
+}
+
+.search .search-input {
+    padding: 0 10px;
+    width: 100%;
+    caret-color: #536bf6;
+    font-size: 19px;
+    font-weight: 300;
+    color: black;
+    transition: width 0.4s linear
+}
+
+.search-icon {
+    height: 34px;
+    width: 34px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #536bf6;
+    font-size: 10px;
+    bottom: 30px;
+    position: relative;
+    border-radius: 5px
+}
+
+.search-icon:hover {
+    color: #fff !important
+}
+
+.col-sm-5 a:link {
+    text-decoration: none
+}
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,18 +142,12 @@
     </nav>
     <div class="container-fluid">
      <div class="row">
-         <div class="col-sm-4">
-             <div class="input-group">
-  <div class="form-outline">
-    <input type="search" id="form1" class="form-control" />
-    <label class="form-label" for="form1">Search</label>
-  </div>
-  <button type="button" class="btn btn-primary">
-    <i class="fas fa-search"></i>
-  </button>
-</div>
-         </div>
-         <div class="col-sm-8"> 
+         <div class="col-sm-5">
+            <div class="search"><form method="POST" action="searchnotes.php"> <input name="search" type="text" class="search-input" placeholder="Search Notes..." name="search"> <a href="#" class="search-icon"> <button type="submit" class="btn btn-primary btn-sm">Search</button> </a> 
+		</form>
+		</div>
+		</div>
+         <div class="col-sm-7"> 
              
          
          
