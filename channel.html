@@ -1,7 +1,5 @@
-<?php
-session_start();
-?>
 <html>
+
 <head>
     <title>
         Add note
@@ -58,11 +56,11 @@ session_start();
             margin-top: 5%;
         }
 
-        .list{
+        .list {
             text-align: center;
         }
 
-         a{
+        a {
             text-decoration: none;
         }
     </style>
@@ -82,42 +80,26 @@ session_start();
                 <a class="nav-link" href="profile.php">PROFILE</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">CHANNELS</a>
+                <a class="nav-link" href="channels.php">CHANNELS</a>
             </li>
         </ul>
     </nav>
-    <div class="container">
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-sm-6">
-                <img src="channels.png" />
-            </div>
-            <div class="col-sm-6 list">
-                <ul class="list-group">
-                    <?php
-                    $email=$_SESSION['email'];
-                    $connection=mysqli_connect("localhost","root","","rock-enroll");
-                    $sql="select channel.name from channels NATURAL JOIN channel where members='$email'";
-                    $result=mysqli_query($connection,$sql);
-                    if(mysqli_num_rows($result)>0)
-                    {
-                        while($row=mysqli_fetch_assoc($result))
-                        {
-                            echo '<a href="channel.php"><li class="list-group-item d-flex justify-content-between align-items-center">'.$row['name'].'
-                    </li></a>';
-                        }
-                    }
-                    ?>
-                  
-                </ul>
-                <br/>
-                <button class="btn btn-lg btn-primary">Join Channel</button>
-                <button class="btn btn-lg btn-primary">Create Channel</button>
-            </div>
-
-
-        </div>
+    <div class="container-fluid">
+     <div class="row">
+         <div class="col-sm-4">
+             search notes,
+             event list,
+             doubts
+         </div>
+         <div class="col-sm-8">
+             chatbox
+         </div>
+     </div>  
     </div>
+
+
+
+
 </body>
+
 </html>
