@@ -63,6 +63,62 @@
         a {
             text-decoration: none;
         }
+
+
+.search {
+    width: 100%;
+    margin-bottom: auto;
+    margin-top: 20px;
+    height: 50px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px
+}
+
+.search-input {
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    margin-top: 5px;
+    caret-color: transparent;
+    line-height: 20px;
+    transition: width 0.4s linear
+}
+
+.search .search-input {
+    padding: 0 10px;
+    width: 100%;
+    caret-color: #536bf6;
+    font-size: 19px;
+    font-weight: 300;
+    color: black;
+    transition: width 0.4s linear
+}
+
+.search-icon {
+    height: 34px;
+    width: 34px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #536bf6;
+    font-size: 10px;
+    bottom: 30px;
+    position: relative;
+    border-radius: 5px
+}
+
+.search-icon:hover {
+    color: #fff !important
+}
+
+.col-sm-5 a:link {
+    text-decoration: none
+}
     </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -86,18 +142,10 @@
     </nav>
     <div class="container-fluid">
      <div class="row">
-         <div class="col-sm-4">
-             <div class="input-group">
-  <div class="form-outline">
-    <input type="search" id="form1" class="form-control" />
-    <label class="form-label" for="form1">Search</label>
-  </div>
-  <button type="button" class="btn btn-primary">
-    <i class="fas fa-search"></i>
-  </button>
-</div>
+         <div class="col-sm-5">
+            <div class="search"> <input type="text" class="search-input" placeholder="Search Notes..." name="search"> <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
          </div>
-         <div class="col-sm-8"> 
+         <div class="col-sm-7"> 
              
          
          
@@ -106,14 +154,17 @@
 
 
 
-         <?php 
+<?php 
+
+session_start();
+$chn = $_SESSION['channel'];
+
 if (isset($_POST['submit'])){ 
 
 $link = mysqli_connect("localhost", 
 			"root", "", "rock-enroll"); 
 
-$_SESSION['channel'] = $_POST["chnnl"];
-$chn = $_SESSION['channel'];
+
 
 // Check connection 
 if($link === false){ 
@@ -170,7 +221,7 @@ main{
 main header{ 
 	height:100px; 
 	padding:30px 20px 30px 40px; 
-	background-color:#622569; 
+	background-color:darkcyan; 
 } 
 main header > *{ 
 	display:inline-block; 
@@ -201,9 +252,9 @@ main .inner_div{
 	position:relative; 
 	overflow:auto; 
 	height:500px; 
-	background-image:url( 
-https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg); 
+	
 	background-position:center; 
+
 	background-repeat:no-repeat; 
 	background-size:cover; 
 	position: relative; 
@@ -261,7 +312,7 @@ main .message1{
 main footer{ 
 	height:150px; 
 	padding:20px 30px 10px 20px; 
-	background-color:#622569; 
+	background-color:darkcyan; 
 } 
 main footer .input1{ 
 	resize:none; 
@@ -312,13 +363,10 @@ main footer textarea::placeholder{
 <div id="container"> 
 	<main> 
 		<header> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
 			<div> 
 				<h2>GROUP CHAT</h2> 
 			</div> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
+		
 		</header> 
 
 <script> 
@@ -339,7 +387,7 @@ $pass = "";
 $db_name = "rock-enroll"; 
 $con = new mysqli($host, $user, $pass, $db_name); 
 
-$query = "SELECT * FROM chats"; 
+$query = "SELECT * FROM chats WHERE channel = '$chn' "; 
 $run = $con->query($query); 
 $i=0; 
 
