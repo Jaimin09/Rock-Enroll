@@ -105,7 +105,6 @@ session_start();
                         while($row=mysqli_fetch_assoc($result))
                         {
                             echo '<a href="#"><li class="list-group-item d-flex justify-content-between align-items-center">'.$row['name'].'
-                        <span class="badge badge-primary badge-pill">14</span>
                     </li></a>';
                         }
                     }
