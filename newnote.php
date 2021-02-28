@@ -1,16 +1,5 @@
 <?php
 session_start();
-$connection=mysqli_connect("localhost","root","","rock-enroll");
-$email= $_SESSION['email'];
-$author=$_SESSION['username'];
-$title=$_POST['title'];
-$link=$_POST['link'];
-$channel=$_POST['channel'];
-$private=false;
-if(isset($_POST['private']))
-$private=true;
-$sql="INSERT INTO notes VALUES('$title','$author','$link',0,'$channel','$private','$email')";
-$res=mysqli_query($connection,$sql);
 ?>
 <html>
   <head>
@@ -78,10 +67,10 @@ $res=mysqli_query($connection,$sql);
       <a class="navbar-brand" href="#"><img src="logo.png" /></a>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#if">PROFILE</a>
+          <a class="nav-link" href="profile.php">PROFILE</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">CHANNELS</a>
+          <a class="nav-link" href="channels.php">CHANNELS</a>
         </li>
       </ul>
     </nav>
@@ -91,15 +80,16 @@ $res=mysqli_query($connection,$sql);
       <div class="row">
         <div class="col-sm-6">
           <br />
-          <form method="POST" action= "newnote.php">
-          <input
+          <?php
+          echo '<form method="POST" action= "addnote.php">';
+          echo '<input
             name="title"
             class="form-control"
             type="text"
             required
             placeholder="Title"
-          />
-          <input
+          />';
+          echo '<input
             name="link"
             class="form-control"
             type="text"
@@ -107,10 +97,10 @@ $res=mysqli_query($connection,$sql);
             placeholder="Enter your NOTE link here.."
           />
           <br />
-          <br />
+          <br />';
 
-          <h5>Select Channels:</h5>
-          <?php
+          echo '<h5>Select Channels:</h5>';
+          $email=$_SESSION['email'];
             $connection=mysqli_connect("localhost","root","","rock-enroll");
             $sql="select channel.name from channels NATURAL JOIN channel where members='$email'";
             $result=mysqli_query($connection,$sql);
@@ -118,15 +108,16 @@ $res=mysqli_query($connection,$sql);
             {
                 while($row=mysqli_fetch_assoc($result))
                 {
-                    echo "<div class='form-check'> <input name='channel' class='form-check-input' type='radio' value='' id='flexCheckDefault' />";
+                    $name=$row['name'];
+                    echo "<div class='form-check'> <input class='form-check-input' type='radio' name='channel' id='flexCheckDefault' value='$name' />";
                     echo "<label class='form-check-label' for='flexCheckDefault'>";
-                    echo $row["name"];
+                    echo $name;
                     echo "</label>";
                     echo "</div>"; 
                 }
             }
-            ?>
-          <div class="form-check">
+            
+          echo '<div class="form-check">
             <input
                name="private"
               class="form-check-input"
@@ -134,16 +125,16 @@ $res=mysqli_query($connection,$sql);
               value=""
               id="flexCheckChecked"
               checked
-            />
-            <label class="form-check-label" for="flexCheckChecked">
+            />';
+            echo '<label class="form-check-label" for="flexCheckChecked">
               <b>My Profile</b>
             </label>
           </div>
+          <br />';
 
-          <br />
-
-          <button class="btn btn-primary btn-medium" type="submit">ADD</button>
-        </form>
+          echo '<button class="btn btn-primary btn-medium" type="submit">ADD</button>
+        </form>';
+        ?>
         </div>
         <div class="col-sm-6">
           <img src="note.png" />
