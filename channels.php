@@ -112,8 +112,8 @@ session_start();
                   
                 </ul>
                 <br/>
-                <button class="btn btn-lg btn-primary">Join Channel</button>
-                <button class="btn btn-lg btn-primary">Create Channel</button>
+                <a href="joinchannel.html"><button class="btn btn-lg btn-primary">Join Channel</button></a>
+                <a href="createchannel.html"><button class="btn btn-lg btn-primary">Create Channel</button></a>
             </div>
 
 
