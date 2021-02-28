@@ -1,4 +1,5 @@
 <?php
+session_start();
 $channel=$_SESSION['channel'];
 $search=$_POST['search'];
 $connection=mysqli_connect("localhost","root","","rock-enroll");
@@ -10,4 +11,4 @@ if(mysqli_num_rows($res)>0)
     echo $row['link'];
 }
 else
-echo "No notes found!";
+echo "<script>alert('No notes found!')</script>";

@@ -143,8 +143,10 @@
     <div class="container-fluid">
      <div class="row">
          <div class="col-sm-5">
-            <div class="search"> <input type="text" class="search-input" placeholder="Search Notes..." name="search"> <a href="#" class="search-icon"> <i class="fa fa-search"></i> </a> </div>
-         </div>
+            <div class="search"><form method="POST" action="searchnotes.php"> <input name="search" type="text" class="search-input" placeholder="Search Notes..." name="search"> <a href="#" class="search-icon"> <button type="submit" class="btn btn-primary btn-sm">Search</button> </a> 
+		</form>
+		</div>
+		</div>
          <div class="col-sm-7"> 
              
          
