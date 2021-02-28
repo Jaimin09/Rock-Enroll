@@ -82,7 +82,7 @@ session_start();
                 <a class="nav-link" href="profile.php">PROFILE</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">CHANNELS</a>
+                <a class="nav-link" href="channels.php">CHANNELS</a>
             </li>
         </ul>
     </nav>
