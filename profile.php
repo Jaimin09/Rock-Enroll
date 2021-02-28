@@ -275,7 +275,7 @@ td.task{
       <a class="nav-link" href="#">PROFILE</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="channels.html">CHANNELS</a>
+      <a class="nav-link" href="channels.php">CHANNELS</a>
     </li>
   </ul>
 </nav>
