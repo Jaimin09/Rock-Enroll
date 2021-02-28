@@ -102,7 +102,7 @@ session_start();
                     $result=mysqli_query($connection,$sql);
                     if(mysqli_num_rows($result)>0)
                     {
-                        echo "<form method = 'POST' action = 'channel.php'  >";
+                        echo "<form method = 'POST' action = 'channel-middle.php'  >";
                         while($row=mysqli_fetch_assoc($result))
                         {
                             echo '<input type = "radio" name = "chnnl" value = '.$row['code'].'><label>'.$row['name'].'</label></br>';

@@ -106,14 +106,17 @@
 
 
 
-         <?php 
+<?php 
+
+session_start();
+$chn = $_SESSION['channel'];
+
 if (isset($_POST['submit'])){ 
 
 $link = mysqli_connect("localhost", 
 			"root", "", "rock-enroll"); 
 
-$_SESSION['channel'] = $_POST["chnnl"];
-$chn = $_SESSION['channel'];
+
 
 // Check connection 
 if($link === false){ 
@@ -170,7 +173,7 @@ main{
 main header{ 
 	height:100px; 
 	padding:30px 20px 30px 40px; 
-	background-color:#622569; 
+	background-color:darkcyan; 
 } 
 main header > *{ 
 	display:inline-block; 
@@ -201,9 +204,9 @@ main .inner_div{
 	position:relative; 
 	overflow:auto; 
 	height:500px; 
-	background-image:url( 
-https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg); 
+	
 	background-position:center; 
+
 	background-repeat:no-repeat; 
 	background-size:cover; 
 	position: relative; 
@@ -261,7 +264,7 @@ main .message1{
 main footer{ 
 	height:150px; 
 	padding:20px 30px 10px 20px; 
-	background-color:#622569; 
+	background-color:darkcyan; 
 } 
 main footer .input1{ 
 	resize:none; 
@@ -312,13 +315,10 @@ main footer textarea::placeholder{
 <div id="container"> 
 	<main> 
 		<header> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
 			<div> 
 				<h2>GROUP CHAT</h2> 
 			</div> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
+		
 		</header> 
 
 <script> 
@@ -339,7 +339,7 @@ $pass = "";
 $db_name = "rock-enroll"; 
 $con = new mysqli($host, $user, $pass, $db_name); 
 
-$query = "SELECT * FROM chats"; 
+$query = "SELECT * FROM chats WHERE channel = '$chn' "; 
 $run = $con->query($query); 
 $i=0; 
 
