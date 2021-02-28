@@ -102,17 +102,18 @@ session_start();
                     $result=mysqli_query($connection,$sql);
                     if(mysqli_num_rows($result)>0)
                     {
+                        echo "<form action = 'channel.html' method = 'POST' >";
                         while($row=mysqli_fetch_assoc($result))
                         {
-                            echo '<a href="channel.php"><li class="list-group-item d-flex justify-content-between align-items-center">'.$row['name'].'
-                    </li></a>';
+                            echo '<input type = "radio" name = "channel" value = '.$row['name'].'><label>'.$row['name'].'</label></br>';
                         }
+                        echo "<button type ='submit'>Join</button></form>";
                     }
                     ?>
-                  
+                
                 </ul>
                 <br/>
-                <button class="btn btn-lg btn-primary">Join Channel</button>
+                <button class="btn btn-lg btn-primary">Join New Channel</button>
                 <button class="btn btn-lg btn-primary">Create Channel</button>
             </div>
 
