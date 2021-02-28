@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <html>
    <head>
        <title>
@@ -246,11 +249,15 @@ td.task{
     if (isset($_POST['submit'])) {
       if (empty($_POST['task'])) {
         $errors = "*You must fill in the task";
+        //unset($_POST['submit']);
       }else{
         $task = $_POST['task'];
         $sql = "INSERT INTO todo (task) VALUES ('$task')";
         mysqli_query($db, $sql);
-        header('location: index.php');
+        unset($_POST);
+        unset($_REQUEST);
+        //$_POST=array();
+        header('location: profile.php');
       }
     }
     if (isset($_GET['del_task'])) {
@@ -268,12 +275,16 @@ td.task{
       <a class="nav-link" href="#">PROFILE</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="channels.html">CHANNELS</a>
+      <a class="nav-link" href="channels.php">CHANNELS</a>
     </li>
   </ul>
 </nav>
 <div class="container h1">
-    <h1>Hello User!!</h1>
+    <?php
+    //session_start();
+    if(isset($_SESSION['username']));
+    echo "<h1>Hello ".$_SESSION["username"]."!!</h1>";
+    ?>
 </div>
 <div class="container todo">
 <div class="container x">
@@ -287,7 +298,7 @@ td.task{
 
             <p class="title"><b>TO DO LIST:</b></p>
 
-            <form method="post" action="profile.php" class="input_form">
+            <form method="POST" action="profile.php" class="input_form">
               <?php if (isset($errors)) { ?>
           	<p><?php echo $errors; ?></p>
           <?php } ?>
@@ -354,7 +365,7 @@ $(function(){
 
 <div class="container mynotes">
     <button class="btn btn-lg btn-primary">My Notes</button>
-    <button class="btn btn-lg btn-primary">Add New </button>
+    <a href="newnote.php"><button class="btn btn-lg btn-primary">Add New </button></a>
 
 </div>
 
