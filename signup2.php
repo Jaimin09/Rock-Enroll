@@ -23,7 +23,7 @@ $query2 = "INSERT INTO login (`email`, `password`, `username`, `stars`)
 
 if(mysqli_query($connection, $query2)){
     echo "<br><br><h2>Successfully Signed Up !</h2><br><br>";
-    header("location: login.html");
+    header("location: login2.html");
 }
 else
     echo "<br><h2>Sign up Error. Please Try again !</h2><br><br>";
