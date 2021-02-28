@@ -6,8 +6,6 @@ setting (user 'root' with no password) */
 $link = mysqli_connect("localhost", 
 			"root", "", "rock-enroll"); 
 
-$email= $_SESSION['email'];
-$author=$_SESSION['username'];
 
 
 // Check connection 
@@ -65,7 +63,7 @@ main{
 main header{ 
 	height:100px; 
 	padding:30px 20px 30px 40px; 
-	background-color:#622569; 
+	background-color:darkcyan; 
 } 
 main header > *{ 
 	display:inline-block; 
@@ -97,8 +95,9 @@ main .inner_div{
 	overflow:auto; 
 	height:500px; 
 	background-image:url( 
-https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg); 
+https://i.pinimg.com/originals/39/b5/ee/39b5eec27e36086ae3e04eec9197e0bd.jpg);
 	background-position:center; 
+
 	background-repeat:no-repeat; 
 	background-size:cover; 
 	position: relative; 
@@ -207,13 +206,11 @@ main footer textarea::placeholder{
 <div id="container"> 
 	<main> 
 		<header> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
+			
 			<div> 
-				<h2>GROUP CHAT</h2> 
+				<h2>General Discussion</h2> 
 			</div> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
+			
 		</header> 
 
 <script> 
