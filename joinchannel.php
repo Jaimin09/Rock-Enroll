@@ -15,4 +15,6 @@ if(mysqli_num_rows($res)>0)
     else
     echo '<script>alert("Cannot join the channel.")</script>';
 }
+else
+echo '<script>alert("No such channel exists")</script>';
 ?>
