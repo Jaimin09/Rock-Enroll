@@ -364,7 +364,7 @@ $(function(){
 </div>
 
 <div class="container mynotes">
-    <button class="btn btn-lg btn-primary">My Notes</button>
+    <a href="mynotes.php"><button class="btn btn-lg btn-primary">My Notes</button></a>
     <a href="newnote.php"><button class="btn btn-lg btn-primary">Add New </button></a>
 
 </div>
