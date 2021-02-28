@@ -98,22 +98,23 @@ session_start();
                     <?php
                     $email=$_SESSION['email'];
                     $connection=mysqli_connect("localhost","root","","rock-enroll");
-                    $sql="select channel.name from channels NATURAL JOIN channel where members='$email'";
+                    $sql="select * from channels NATURAL JOIN channel where members='$email'";
                     $result=mysqli_query($connection,$sql);
                     if(mysqli_num_rows($result)>0)
                     {
+                        echo "<form method = 'POST' action = 'channel.php'  >";
                         while($row=mysqli_fetch_assoc($result))
                         {
-                            echo '<a href="channel.php"><li class="list-group-item d-flex justify-content-between align-items-center">'.$row['name'].'
-                    </li></a>';
+                            echo '<input type = "radio" name = "chnnl" value = '.$row['code'].'><label>'.$row['name'].'</label></br>';
                         }
+                        echo "<button type ='submit'>Join</button></form>";
                     }
                     ?>
-                  
+                
                 </ul>
                 <br/>
-                <a href="joinchannel.html"><button class="btn btn-lg btn-primary">Join Channel</button></a>
-                <a href="createchannel.html"><button class="btn btn-lg btn-primary">Create Channel</button></a>
+                <a href="joinchannel.html"><button class="btn btn-lg btn-primary">Join New Channel</button></a>
+                <a href="createchannel.html"><button class="btn btn-lg btn-primary">Create New Channel</button></a>
             </div>
 
 
