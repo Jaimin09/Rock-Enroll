@@ -104,7 +104,7 @@ session_start();
                     {
                         while($row=mysqli_fetch_assoc($result))
                         {
-                            echo '<a href="#"><li class="list-group-item d-flex justify-content-between align-items-center">'.$row['name'].'
+                            echo '<a href="channel.php"><li class="list-group-item d-flex justify-content-between align-items-center">'.$row['name'].'
                     </li></a>';
                         }
                     }
