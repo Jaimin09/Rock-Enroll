@@ -106,6 +106,9 @@ if (isset($_POST['submit'])){
 $link = mysqli_connect("localhost", 
 			"root", "", "rock-enroll"); 
 
+$_SESSION['channel'] = $_POST["chnnl"];
+$chn = $_SESSION['channel'];
+
 // Check connection 
 if($link === false){ 
 	die("ERROR: Could not connect. "
@@ -121,8 +124,8 @@ date_default_timezone_set('Asia/Kolkata');
 $ts=date('y-m-d h:ia'); 
 
 // Attempt insert query execution 
-$sql = "INSERT INTO chats (uname, msg, dt) 
-		VALUES ('$un', '$m', '$ts')"; 
+$sql = "INSERT INTO chats (uname, msg, dt, channel) 
+		VALUES ('$un', '$m', '$ts', '$chn')"; 
 if(mysqli_query($link, $sql)){ 
 	; 
 } else{ 
