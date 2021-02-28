@@ -154,11 +154,17 @@
 
 
 
-         <?php 
+<?php 
+
+session_start();
+$chn = $_SESSION['channel'];
+
 if (isset($_POST['submit'])){ 
 
 $link = mysqli_connect("localhost", 
 			"root", "", "rock-enroll"); 
+
+
 
 // Check connection 
 if($link === false){ 
@@ -175,8 +181,8 @@ date_default_timezone_set('Asia/Kolkata');
 $ts=date('y-m-d h:ia'); 
 
 // Attempt insert query execution 
-$sql = "INSERT INTO chats (uname, msg, dt) 
-		VALUES ('$un', '$m', '$ts')"; 
+$sql = "INSERT INTO chats (uname, msg, dt, channel) 
+		VALUES ('$un', '$m', '$ts', '$chn')"; 
 if(mysqli_query($link, $sql)){ 
 	; 
 } else{ 
@@ -215,7 +221,7 @@ main{
 main header{ 
 	height:100px; 
 	padding:30px 20px 30px 40px; 
-	background-color:#622569; 
+	background-color:darkcyan; 
 } 
 main header > *{ 
 	display:inline-block; 
@@ -246,9 +252,9 @@ main .inner_div{
 	position:relative; 
 	overflow:auto; 
 	height:500px; 
-	background-image:url( 
-https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200911064223/bg.jpg); 
+	
 	background-position:center; 
+
 	background-repeat:no-repeat; 
 	background-size:cover; 
 	position: relative; 
@@ -306,7 +312,7 @@ main .message1{
 main footer{ 
 	height:150px; 
 	padding:20px 30px 10px 20px; 
-	background-color:#622569; 
+	background-color:darkcyan; 
 } 
 main footer .input1{ 
 	resize:none; 
@@ -357,13 +363,10 @@ main footer textarea::placeholder{
 <div id="container"> 
 	<main> 
 		<header> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
 			<div> 
 				<h2>GROUP CHAT</h2> 
 			</div> 
-			<img src="https://s3-us-west-2.amazonaws.com/ 
-			s.cdpn.io/1940306/ico_star.png" alt=""> 
+		
 		</header> 
 
 <script> 
@@ -384,7 +387,7 @@ $pass = "";
 $db_name = "rock-enroll"; 
 $con = new mysqli($host, $user, $pass, $db_name); 
 
-$query = "SELECT * FROM chats"; 
+$query = "SELECT * FROM chats WHERE channel = '$chn' "; 
 $run = $con->query($query); 
 $i=0; 
 
