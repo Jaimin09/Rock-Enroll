@@ -25,7 +25,7 @@ Our major challenge was to keep the track of different channels and students in 
 
 ## Demo Link 
 
-![IMAGE](https://img.youtube.com/vi/wOJKFZoFdHU/0.jpg)](https://www.youtube.com/watch?v=wOJKFZoFdHU)
+[![IMAGE](https://img.youtube.com/vi/wOJKFZoFdHU/0.jpg)](https://www.youtube.com/watch?v=wOJKFZoFdHU)
 
 
 https://youtu.be/wOJKFZoFdHU
